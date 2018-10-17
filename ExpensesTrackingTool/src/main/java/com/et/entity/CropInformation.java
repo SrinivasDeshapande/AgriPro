@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Crop_Information")
 public class CropInformation {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="crop_id")

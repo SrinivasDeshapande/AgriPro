@@ -37,7 +37,7 @@ public class Expenses {
 	private String description    ;
 	@Column(name="crop_id")
 	private long cropId    ;
-	@Column(name="Bill_id")
+	@Column(name="Farm_id")
 	private long farmid    ;
 	@Column(name="creator_id")
 	private long creator_id     ;
