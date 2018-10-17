@@ -12,7 +12,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Crop_Information")
 public class CropInformation {
-	
+
+	@Override
+	public String toString() {
+		return "CropInformation [cropId=" + cropId + ", cropName=" + cropName + ", description=" + description
+				+ ", farmid=" + farmid + ", creator_id=" + creator_id + ", updator_id=" + updator_id + ", createdOn="
+				+ createdOn + "]";
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="crop_id")
@@ -21,13 +27,14 @@ public class CropInformation {
 	private String cropName;
 	@Column(name="Description")
 	private String description    ; 
-	@Column(name="Farm_id")
+	
+	@Column(name="Farm_id",nullable=false)
 	private long farmid     ;
-	@Column(name="creator_id")
+	@Column(name="creator_id" ,insertable=true,updatable=false)
 	private long creator_id     ;
-	@Column(name="updator_id")
+	@Column(name="updator_id" ,insertable=false,updatable=true)
 	private long updator_id      ;
-	@Column(name="createdOn")
+	@Column(name="createdOn" ,insertable=true,updatable=false)
 	private Date createdOn       ;
 	//private long updatedOn       
 	public long getCropId() {
@@ -73,6 +80,6 @@ public class CropInformation {
 		this.createdOn = createdOn;
 	}
 
-	
+
 
 }

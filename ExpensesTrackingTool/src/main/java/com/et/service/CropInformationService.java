@@ -13,4 +13,6 @@ public interface CropInformationService {
 	
 	public List<CropInformation> getCropInformation();
 
+	public CropInformation insertCropInfo(CropInformation cropinfo);
+
 }

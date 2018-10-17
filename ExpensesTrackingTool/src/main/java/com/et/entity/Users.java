@@ -13,22 +13,30 @@ import javax.persistence.Table;
 @Table(name="users")
 
 public class Users {
+	
+	
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", username=" + username + ", password=" + password + ", userRole="
+				+ userRole + ", creator_id=" + creator_id + ", updator_id=" + updator_id + ", createdOn=" + createdOn
+				+ "]";
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="user_id")
 	private long userId;
-	@Column(name="username")
+	@Column(name="username",nullable=false)
 	private String username;
 	@Column(name="password")
 	private double password    ;
 	@Column(name="user_role")
 	private Date userRole    ;
-	@Column(name="creator_id")
+	@Column(name="creator_id",insertable=true,updatable=false)
 	private long creator_id     ;
-	@Column(name="updator_id")
+	@Column(name="updator_id",insertable=false,updatable=true)
 	private long updator_id      ;
-	@Column(name="createdOn")
+	@Column(name="createdOn",insertable=true,updatable=false)
 	private Date createdOn       ;
 	//private long updatedOn       
 /*	public String getDescription() {

@@ -1,5 +1,6 @@
 package com.et.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,94 +10,110 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.Persistent;
+
 @Entity
 @Table(name="Farmer_Land_Mapping")
-public class FarmLandMapping {
+public class FarmLandMapping implements Serializable{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7018317649703775941L;
+	
+	@Override
+	public String toString() {
+		return "FarmLandMapping [farmId=" + farmId + ", farmerName=" + farmerName + ", landDetails=" + landDetails
+				+ ", areaOfLand=" + areaOfLand + ", sharePercentage=" + sharePercentage + ", season=" + season
+				+ ", description=" + description + ", creator_id=" + creator_id + ", updator_id=" + updator_id
+				+ ", createdOn=" + createdOn + "]";
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
-		@Column(name="Farm_id")
+
+	@Column(name="Farm_id")
 	private long farmId;
-		@Column(name="Farmer_name")
+	@Column(name="Farmer_Name")
 	private String farmerName;
-		@Column(name="Land_Details")
+	@Column(name="Land_Details")
 	private String landDetails;  
-		@Column(name="AreaOfLand")
+	@Column(name="AreaOfLand")
 	private long areaOfLand     ;
-		@Column(name="SharePercentage")
+	@Column(name="SharePercentage")
 	private int sharePercentage ;
-		@Column(name="Season")
+	@Column(name="Season")
 	private String season        ;  
-		@Column(name="Description")
+	@Column(name="Description")
 	private String description    ; 
-@Column(name="creator_id")
-		private long creator_id     ;
-@Column(name="updator_id")
-private long updator_id      ;
-@Column(name="createdOn")
+	@Column(name="creator_id",insertable=true,updatable=false)
+	private long creator_id     ;
+	@Column(name="updator_id",insertable=true,updatable=true)
+	private int updator_id      ;
+	@Column(name="createdOn",insertable=true,updatable=false)
 	private Date createdOn       ;
 	//private long updatedOn       
-
 	public long getFarmId() {
-		return farmId;
+		return this.farmId;
 	}
 	public void setFarmId(long farmId) {
 		this.farmId = farmId;
 	}
-	public String getFarmer_Name() {
-		return farmerName;
+	public String getFarmerName() {
+		return this.farmerName;
 	}
-	public void setFarmer_Name(String farmer_Name) {
-		this.farmerName = farmer_Name;
+	public void setFarmerName(String farmerName) {
+		this.farmerName = farmerName;
 	}
-	public String getLand_Details() {
-		return landDetails;
+	public String getLandDetails() {
+		return this.landDetails;
 	}
-	public void setLand_Details(String land_Details) {
-		this.landDetails = land_Details;
+	public void setLandDetails(String landDetails) {
+		this.landDetails = landDetails;
 	}
 	public long getAreaOfLand() {
-		return areaOfLand;
+		return this.areaOfLand;
 	}
 	public void setAreaOfLand(long areaOfLand) {
 		this.areaOfLand = areaOfLand;
 	}
 	public int getSharePercentage() {
-		return sharePercentage;
+		return this.sharePercentage;
 	}
 	public void setSharePercentage(int sharePercentage) {
 		this.sharePercentage = sharePercentage;
 	}
 	public String getSeason() {
-		return season;
+		return this.season;
 	}
 	public void setSeason(String season) {
 		this.season = season;
 	}
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
 	public long getCreator_id() {
-		return creator_id;
+		return this.creator_id;
 	}
 	public void setCreator_id(long creator_id) {
 		this.creator_id = creator_id;
 	}
-	public long getUpdator_id() {
-		return updator_id;
+	public int getUpdator_id() {
+		return this.updator_id;
 	}
-	public void setUpdator_id(long updator_id) {
+	public void setUpdator_id(int updator_id) {
 		this.updator_id = updator_id;
 	}
 	public Date getCreatedOn() {
-		return createdOn;
+		return this.createdOn;
 	}
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
+
 
 
 }
