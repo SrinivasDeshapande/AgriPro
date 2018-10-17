@@ -1,12 +1,20 @@
 package com.et.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Farmer_Land_Mapping")
 public class FarmLandMapping {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 		@Column(name="Farm_id")
 	private long farmId;
 		@Column(name="Farmer_name")
@@ -26,7 +34,7 @@ public class FarmLandMapping {
 @Column(name="updator_id")
 private long updator_id      ;
 @Column(name="createdOn")
-	private long createdOn       ;
+	private Date createdOn       ;
 	//private long updatedOn       
 
 	public long getFarmId() {
@@ -83,10 +91,10 @@ private long updator_id      ;
 	public void setUpdator_id(long updator_id) {
 		this.updator_id = updator_id;
 	}
-	public long getCreatedOn() {
+	public Date getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreatedOn(long createdOn) {
+	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
 
