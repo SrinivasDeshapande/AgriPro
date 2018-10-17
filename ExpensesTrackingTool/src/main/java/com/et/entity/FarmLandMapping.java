@@ -8,15 +8,24 @@ import javax.persistence.Table;
 @Table(name="Farmer_Land_Mapping")
 public class FarmLandMapping {
 		@Column(name="Farm_id")
-	private long farmId;         
-	private String Farmer_Name;     
-	private String Land_Details;    
-	private long AreaOfLand     ; 
-	private int SharePercentage ;
-	private String Season        ;  
-	private String Description    ; 
-	private long creator_id     ;
-	private long updator_id      ;
+	private long farmId;
+		@Column(name="Farmer_name")
+	private String farmerName;
+		@Column(name="Land_Details")
+	private String landDetails;  
+		@Column(name="AreaOfLand")
+	private long areaOfLand     ;
+		@Column(name="SharePercentage")
+	private int sharePercentage ;
+		@Column(name="Season")
+	private String season        ;  
+		@Column(name="Description")
+	private String description    ; 
+@Column(name="creator_id")
+		private long creator_id     ;
+@Column(name="updator_id")
+private long updator_id      ;
+@Column(name="createdOn")
 	private long createdOn       ;
 	//private long updatedOn       
 
@@ -27,40 +36,40 @@ public class FarmLandMapping {
 		this.farmId = farmId;
 	}
 	public String getFarmer_Name() {
-		return Farmer_Name;
+		return farmerName;
 	}
 	public void setFarmer_Name(String farmer_Name) {
-		Farmer_Name = farmer_Name;
+		this.farmerName = farmer_Name;
 	}
 	public String getLand_Details() {
-		return Land_Details;
+		return landDetails;
 	}
 	public void setLand_Details(String land_Details) {
-		Land_Details = land_Details;
+		this.landDetails = land_Details;
 	}
 	public long getAreaOfLand() {
-		return AreaOfLand;
+		return areaOfLand;
 	}
 	public void setAreaOfLand(long areaOfLand) {
-		AreaOfLand = areaOfLand;
+		this.areaOfLand = areaOfLand;
 	}
 	public int getSharePercentage() {
-		return SharePercentage;
+		return sharePercentage;
 	}
 	public void setSharePercentage(int sharePercentage) {
-		SharePercentage = sharePercentage;
+		this.sharePercentage = sharePercentage;
 	}
 	public String getSeason() {
-		return Season;
+		return season;
 	}
 	public void setSeason(String season) {
-		Season = season;
+		this.season = season;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	public long getCreator_id() {
 		return creator_id;
