@@ -22,25 +22,25 @@ public class CropInformation {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="crop_id")
-	private long cropId;
+	private Long cropId;
 	@Column(name="CropName")
 	private String cropName;
 	@Column(name="Description")
 	private String description    ; 
 	
 	@Column(name="Farm_id",nullable=false)
-	private long farmid     ;
+	private Long farmid     ;
 	@Column(name="creator_id" ,insertable=true,updatable=false)
-	private long creator_id     ;
+	private Long creator_id     ;
 	@Column(name="updator_id" ,insertable=false,updatable=true)
-	private long updator_id      ;
+	private Long updator_id      ;
 	@Column(name="createdOn" ,insertable=true,updatable=false)
 	private Date createdOn       ;
-	//private long updatedOn       
-	public long getCropId() {
+	//private Long updatedOn       
+	public Long getCropId() {
 		return cropId;
 	}
-	public void setCropId(long cropId) {
+	public void setCropId(Long cropId) {
 		this.cropId = cropId;
 	}
 	public String getCropName() {
@@ -55,22 +55,22 @@ public class CropInformation {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public long getFarmid() {
+	public Long getFarmid() {
 		return farmid;
 	}
-	public void setFarmid(long farmid) {
+	public void setFarmid(Long farmid) {
 		this.farmid = farmid;
 	}
-	public long getCreator_id() {
+	public Long getCreator_id() {
 		return creator_id;
 	}
-	public void setCreator_id(long creator_id) {
+	public void setCreator_id(Long creator_id) {
 		this.creator_id = creator_id;
 	}
-	public long getUpdator_id() {
+	public Long getUpdator_id() {
 		return updator_id;
 	}
-	public void setUpdator_id(long updator_id) {
+	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
 	public Date getCreatedOn() {

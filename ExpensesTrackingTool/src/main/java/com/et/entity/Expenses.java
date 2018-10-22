@@ -25,36 +25,36 @@ public class Expenses {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
 	@Column(name="Exp_id")
-	private long expId;
+	private Long expId;
 	@Column(name="Name")
 	private String name;
 	@Column(name="type_id")
-	private long typeId    ;
+	private Long typeId    ;
 	@Column(name="DateOfExp")
 	private Date dateOfExp    ;
 	@Column(name="Quantity")
-	private double quantity    ;
+	private Double quantity    ;
 	@Column(name="Rate")
-	private double rate    ;
+	private Double rate    ;
 	@Column(name="Amount")
-	private double amount    ;
+	private Double amount    ;
 	@Column(name="Discount")
-	private double discount    ;
+	private Double discount    ;
 	@Column(name="Bill_id")
-	private double billId    ;
+	private Double billId    ;
 	@Column(name="Description")
 	private String description    ;
 	@Column(name="crop_id")
-	private long cropId    ;
+	private Long cropId    ;
 	@Column(name="Farm_id")
-	private long farmid    ;
+	private Long farmid    ;
 	@Column(name="creator_id",insertable=true,updatable=false)
-	private long creator_id     ;
+	private Long creator_id     ;
 	@Column(name="updator_id",insertable=false,updatable=true)
-	private long updator_id      ;
+	private Long updator_id      ;
 	@Column(name="createdOn" ,insertable=true,updatable=false)
 	private Date createdOn       ;
-	//private long updatedOn       
+	//private Long updatedOn       
 	/*	public String getDescription() {
 		return description;
 	}
@@ -62,19 +62,19 @@ public class Expenses {
 		this.description = description;
 	}
 	 */	
-	public long getCreator_id() {
+	public Long getCreator_id() {
 		return creator_id;
 	}
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
-	public long getExpId() {
+	public Long getExpId() {
 		return expId;
 	}
-	public void setExpId(long expId) {
+	public void setExpId(Long expId) {
 		this.expId = expId;
 	}
 	public String getName() {
@@ -83,10 +83,10 @@ public class Expenses {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getTypeId() {
+	public Long getTypeId() {
 		return typeId;
 	}
-	public void setTypeId(long typeId) {
+	public void setTypeId(Long typeId) {
 		this.typeId = typeId;
 	}
 	public Date getDateOfExp() {
@@ -95,28 +95,28 @@ public class Expenses {
 	public void setDateOfExp(Date dateOfExp) {
 		this.dateOfExp = dateOfExp;
 	}
-	public double getQuantity() {
+	public Double getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(double quantity) {
+	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
 	}
-	public double getRate() {
+	public Double getRate() {
 		return rate;
 	}
-	public void setRate(double rate) {
+	public void setRate(Double rate) {
 		this.rate = rate;
 	}
-	public double getDiscount() {
+	public Double getDiscount() {
 		return discount;
 	}
-	public void setDiscount(double discount) {
+	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
-	public double getBillId() {
+	public Double getBillId() {
 		return billId;
 	}
-	public void setBillId(double billId) {
+	public void setBillId(Double billId) {
 		this.billId = billId;
 	}
 	public String getDescription() {
@@ -125,25 +125,25 @@ public class Expenses {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public long getCropId() {
+	public Long getCropId() {
 		return cropId;
 	}
-	public void setCropId(long cropId) {
+	public void setCropId(Long cropId) {
 		this.cropId = cropId;
 	}
-	public long getFarmid() {
+	public Long getFarmid() {
 		return farmid;
 	}
-	public void setFarmid(long farmid) {
+	public void setFarmid(Long farmid) {
 		this.farmid = farmid;
 	}
-	public void setCreator_id(long creator_id) {
+	public void setCreator_id(Long creator_id) {
 		this.creator_id = creator_id;
 	}
-	public long getUpdator_id() {
+	public Long getUpdator_id() {
 		return updator_id;
 	}
-	public void setUpdator_id(long updator_id) {
+	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
 	public Date getCreatedOn() {

@@ -31,15 +31,9 @@ public class HomeController {
 		return new ResponseEntity<>("Hello",HttpStatus.OK);
 	}
 
-	@GetMapping("CropInformaiton")
-	public ResponseEntity<?> getCropInformation(){
-		return new ResponseEntity<>(cropDao.getCropInformation(),HttpStatus.OK);
-	}
+
 	
-	@RequestMapping(value="insertCropInfo",method=RequestMethod.POST)
-	public ResponseEntity<?> insertCropsInfo(@RequestBody CropInformation cropinfo) {
-		return new ResponseEntity<>(cropDao.insertCropInfo(cropinfo),HttpStatus.OK);
-	}
+	
 	@RequestMapping(value="insertFarmLandMapping",method=RequestMethod.POST)
 	public ResponseEntity<?> insertFarmLandMap(@RequestBody FarmLandMapping farmLandMap) {
 		System.out.println(farmLandMap.toString());

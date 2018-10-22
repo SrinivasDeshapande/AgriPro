@@ -25,19 +25,19 @@ public class InvestorInformation {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="inv_id")
-	private long invId;
+	private Long invId;
 	@Column(name="invName")
 	private String invName;
 	@Column(name="Amount")
-	private double amount    ;
+	private Double amount    ;
 	@Column(name="DateOfInv")
 	private Date dateOfInv    ;
 	@Column(name="Farm_id" )
-	private long farmid    ;
+	private Long farmid    ;
 	@Column(name="creator_id" ,insertable=true,updatable=false)
-	private long creator_id     ;
+	private Long creator_id     ;
 	@Column(name="updator_id" ,insertable=false,updatable=true)
-	private long updator_id      ;
+	private Long  updator_id      ;
 	@Column(name="createdOn" ,insertable=true,updatable=false)
 	private Date createdOn       ;
 	//private long updatedOn       
@@ -63,10 +63,10 @@ public class InvestorInformation {
 	public void setInvName(String invName) {
 		this.invName = invName;
 	}
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 	public Date getDateOfInv() {

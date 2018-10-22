@@ -24,18 +24,18 @@ public class ExpenseTypes {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="type_id")
-	private long typeId;
+	private Long typeId;
 	@Column(name="name")
 	private String name;
 //	@Column(name="Description")
 //	private String description    ; 
 	@Column(name="creator_id",insertable=true,updatable=false)
-	private long creator_id     ;
+	private Long creator_id     ;
 	@Column(name="updator_id",insertable=false,updatable=true)
-	private long updator_id      ;
+	private Long  updator_id      ;
 	@Column(name="createdOn" ,insertable=true,updatable=false)
 	private Date createdOn       ;
-	//private long updatedOn       
+	//private Long updatedOn       
 /*	public String getDescription() {
 		return description;
 	}
@@ -43,13 +43,13 @@ public class ExpenseTypes {
 		this.description = description;
 	}
 */	
-	public long getCreator_id() {
+	public Long getCreator_id() {
 		return creator_id;
 	}
-	public long getTypeId() {
+	public Long getTypeId() {
 		return typeId;
 	}
-	public void setTypeId(long typeId) {
+	public void setTypeId(Long typeId) {
 		this.typeId = typeId;
 	}
 	public String getName() {
@@ -58,13 +58,13 @@ public class ExpenseTypes {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setCreator_id(long creator_id) {
+	public void setCreator_id(Long creator_id) {
 		this.creator_id = creator_id;
 	}
-	public long getUpdator_id() {
+	public Long getUpdator_id() {
 		return updator_id;
 	}
-	public void setUpdator_id(long updator_id) {
+	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
 	public Date getCreatedOn() {

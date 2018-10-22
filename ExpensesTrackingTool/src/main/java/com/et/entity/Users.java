@@ -25,20 +25,20 @@ public class Users {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="user_id")
-	private long userId;
+	private Long userId;
 	@Column(name="username",nullable=false)
 	private String username;
 	@Column(name="password")
-	private double password    ;
+	private String password    ;
 	@Column(name="user_role")
 	private Date userRole    ;
 	@Column(name="creator_id",insertable=true,updatable=false)
-	private long creator_id     ;
+	private Long creator_id     ;
 	@Column(name="updator_id",insertable=false,updatable=true)
-	private long updator_id      ;
+	private Long  updator_id      ;
 	@Column(name="createdOn",insertable=true,updatable=false)
 	private Date createdOn       ;
-	//private long updatedOn       
+	//private Long updatedOn       
 /*	public String getDescription() {
 		return description;
 	}
@@ -46,15 +46,15 @@ public class Users {
 		this.description = description;
 	}
 */	
-	public long getCreator_id() {
+	public Long getCreator_id() {
 		return creator_id;
 	}
 	
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
@@ -66,11 +66,11 @@ public class Users {
 		this.username = username;
 	}
 
-	public double getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(double password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -82,13 +82,13 @@ public class Users {
 		this.userRole = userRole;
 	}
 
-	public void setCreator_id(long creator_id) {
+	public void setCreator_id(Long creator_id) {
 		this.creator_id = creator_id;
 	}
-	public long getUpdator_id() {
+	public Long getUpdator_id() {
 		return updator_id;
 	}
-	public void setUpdator_id(long updator_id) {
+	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
 	public Date getCreatedOn() {

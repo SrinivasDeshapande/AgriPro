@@ -15,7 +15,7 @@ public class CropInformationServiceImpl implements CropInformationService{
 	public CropInformationRepository cropRepos;
 
 	@Override
-	public List<CropInformation> getCropInformation() {
+	public List<CropInformation> getAllCropInformation() {
 		// TODO Auto-generated method stub
 		return (List<CropInformation>) cropRepos.findAll();
 	}
@@ -24,6 +24,12 @@ public class CropInformationServiceImpl implements CropInformationService{
 	public CropInformation insertCropInfo(CropInformation cropinfo) {
 		// TODO Auto-generated method stub
 		return cropRepos.save(cropinfo);
+	}
+
+	@Override
+	public CropInformation getCropInfoById(long cropId) {
+		// TODO Auto-generated method stub
+		return cropRepos.getCropInfoById(cropId);
 	}
 
 }

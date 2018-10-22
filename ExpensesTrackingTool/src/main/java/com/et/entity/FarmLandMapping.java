@@ -20,7 +20,7 @@ public class FarmLandMapping implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7018317649703775941L;
+	private static final Long serialVersionUID = -7018317649703775941L;
 	
 	@Override
 	public String toString() {
@@ -33,30 +33,30 @@ public class FarmLandMapping implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
 	@Column(name="Farm_id")
-	private long farmId;
+	private Long farmId;
 	@Column(name="Farmer_Name")
 	private String farmerName;
 	@Column(name="Land_Details")
 	private String landDetails;  
 	@Column(name="AreaOfLand")
-	private long areaOfLand     ;
+	private Long areaOfLand     ;
 	@Column(name="SharePercentage")
-	private int sharePercentage ;
+	private Integer sharePercentage ;
 	@Column(name="Season")
 	private String season        ;  
 	@Column(name="Description")
 	private String description    ; 
 	@Column(name="creator_id",insertable=true,updatable=false)
-	private long creator_id     ;
-	@Column(name="updator_id",insertable=true,updatable=true)
-	private int updator_id      ;
+	private Long creator_id     ;
+	@Column(name="updator_id",insertable=false,updatable=true)
+	private Long updator_id      ;
 	@Column(name="createdOn",insertable=true,updatable=false)
 	private Date createdOn       ;
-	//private long updatedOn       
-	public long getFarmId() {
+	//private Long updatedOn       
+	public Long getFarmId() {
 		return this.farmId;
 	}
-	public void setFarmId(long farmId) {
+	public void setFarmId(Long farmId) {
 		this.farmId = farmId;
 	}
 	public String getFarmerName() {
@@ -71,10 +71,10 @@ public class FarmLandMapping implements Serializable{
 	public void setLandDetails(String landDetails) {
 		this.landDetails = landDetails;
 	}
-	public long getAreaOfLand() {
+	public Long getAreaOfLand() {
 		return this.areaOfLand;
 	}
-	public void setAreaOfLand(long areaOfLand) {
+	public void setAreaOfLand(Long areaOfLand) {
 		this.areaOfLand = areaOfLand;
 	}
 	public int getSharePercentage() {
@@ -95,16 +95,16 @@ public class FarmLandMapping implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public long getCreator_id() {
+	public Long getCreator_id() {
 		return this.creator_id;
 	}
-	public void setCreator_id(long creator_id) {
+	public void setCreator_id(Long creator_id) {
 		this.creator_id = creator_id;
 	}
-	public int getUpdator_id() {
+	public Long getUpdator_id() {
 		return this.updator_id;
 	}
-	public void setUpdator_id(int updator_id) {
+	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
 	public Date getCreatedOn() {

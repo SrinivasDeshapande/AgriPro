@@ -11,8 +11,10 @@ import com.et.entity.CropInformation;
 public interface CropInformationService {
 	
 	
-	public List<CropInformation> getCropInformation();
+	public List<CropInformation> getAllCropInformation();
 
 	public CropInformation insertCropInfo(CropInformation cropinfo);
+
+	public CropInformation getCropInfoById(long cropId);
 
 }
