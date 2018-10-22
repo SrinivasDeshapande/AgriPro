@@ -40,7 +40,7 @@ public class InvestorInformation {
 	private Long  updator_id      ;
 	@Column(name="createdOn" ,insertable=true,updatable=false)
 	private Date createdOn       ;
-	//private long updatedOn       
+	//private Long updatedOn       
 /*	public String getDescription() {
 		return description;
 	}
@@ -48,13 +48,13 @@ public class InvestorInformation {
 		this.description = description;
 	}
 */	
-	public long getCreator_id() {
+	public Long getCreator_id() {
 		return creator_id;
 	}
-	public long getInvId() {
+	public Long getInvId() {
 		return invId;
 	}
-	public void setInvId(long invId) {
+	public void setInvId(Long invId) {
 		this.invId = invId;
 	}
 	public String getInvName() {
@@ -75,19 +75,19 @@ public class InvestorInformation {
 	public void setDateOfInv(Date dateOfInv) {
 		this.dateOfInv = dateOfInv;
 	}
-	public long getFarmid() {
+	public Long getFarmid() {
 		return farmid;
 	}
-	public void setFarmid(long farmid) {
+	public void setFarmid(Long farmid) {
 		this.farmid = farmid;
 	}
-	public void setCreator_id(long creator_id) {
+	public void setCreator_id(Long creator_id) {
 		this.creator_id = creator_id;
 	}
-	public long getUpdator_id() {
+	public Long getUpdator_id() {
 		return updator_id;
 	}
-	public void setUpdator_id(long updator_id) {
+	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
 	public Date getCreatedOn() {
