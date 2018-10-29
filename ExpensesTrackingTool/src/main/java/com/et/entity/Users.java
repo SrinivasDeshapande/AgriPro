@@ -1,5 +1,7 @@
 package com.et.entity;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,14 +11,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name="users")
 @DynamicUpdate
-public class Users {
+public class Users implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1585835367895374106L;
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", username=" + username + ", password=" + password + ", userRole="
@@ -39,7 +46,8 @@ public class Users {
 	@Column(name="updator_id",insertable=false,updatable=true)
 	private Long  updator_id      ;
 	@Column(name="createdOn",insertable=true,updatable=false)
-	private Date createdOn       ;
+	@CreationTimestamp
+	private LocalDateTime createdOn       ;
 	//private Long updatedOn       
 /*	public String getDescription() {
 		return description;
@@ -93,13 +101,15 @@ public class Users {
 	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
-	public Date getCreatedOn() {
+
+	public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreatedOn(Date createdOn) {
+
+	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
-
+	
 	
 
 }

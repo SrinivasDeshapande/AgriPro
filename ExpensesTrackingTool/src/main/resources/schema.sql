@@ -53,6 +53,7 @@ create table Crop_Information(
 create table Billing_Information(
 	Bill_id int(11) auto_increment primary key,
 	BillerName varchar(255),
+	billDate date,
 	Description varchar(1000),
 	creator_id int(11),
 	updator_id int(11),

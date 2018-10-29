@@ -14,60 +14,54 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonMerge;
+import com.fasterxml.jackson.annotation.OptBoolean;
+
+
 @Entity
-@Table(name="Expense_Types")
 @DynamicUpdate
-public class ExpenseTypes implements Serializable{
-	
-	
-	
+@Table(name="Billing_Information")
+public class BillingInformation implements Serializable {
+
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5274013483007289200L;
-	@Override
-	public String toString() {
-		return "ExpenseTypes [typeId=" + typeId + ", name=" + name + ", creator_id=" + creator_id + ", updator_id="
-				+ updator_id + ", createdOn=" + createdOn + "]";
-	}
+	private static final long serialVersionUID = -6126616233418621123L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="Bill_id")
+	private Long billId;
+	@Column(name="BillerName")
+	private String billerName;
+	@Column(name="Description")
 	
-	@Column(name="type_id")
-	private Long typeId;
-	@Column(name="name")
-	private String name;
-//	@Column(name="Description")
-//	private String description    ; 
-	@Column(name="creator_id",insertable=true,updatable=false)
+	private String description    ; 
+	
+	@Column(name="billDate")
+	private Date billDate;
+	
+	
+	@Column(name="creator_id" ,insertable=true,updatable=false)
 	private Long creator_id     ;
-	@Column(name="updator_id",insertable=false,updatable=true)
-	private Long  updator_id      ;
+	@Column(name="updator_id" ,insertable=false,updatable=true)
+	
+	private Long updator_id      ;
 	@Column(name="createdOn" ,insertable=true,updatable=false)
 	@CreationTimestamp
 	private LocalDateTime createdOn       ;
 	//private Long updatedOn       
-/*	public String getDescription() {
+	
+	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-*/	
+	
 	public Long getCreator_id() {
 		return creator_id;
-	}
-	public Long getTypeId() {
-		return typeId;
-	}
-	public void setTypeId(Long typeId) {
-		this.typeId = typeId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public void setCreator_id(Long creator_id) {
 		this.creator_id = creator_id;
@@ -84,8 +78,23 @@ public class ExpenseTypes implements Serializable{
 	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
-	
 
-	
-
+	public Long getBillId() {
+		return billId;
+	}
+	public void setBillId(Long billId) {
+		this.billId = billId;
+	}
+	public String getBillerName() {
+		return billerName;
+	}
+	public void setBillerName(String billerName) {
+		this.billerName = billerName;
+	}
+	public Date getBillDate() {
+		return billDate;
+	}
+	public void setBillDate(Date billDate) {
+		this.billDate = billDate;
+	}
 }

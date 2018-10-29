@@ -13,7 +13,7 @@ import com.et.service.CropInformationService;
 
 @RestController
 @RequestMapping("/Crop")
-public class CropController {
+public class InformationController {
 	
 	@Autowired
 	CropInformationService cropDao;

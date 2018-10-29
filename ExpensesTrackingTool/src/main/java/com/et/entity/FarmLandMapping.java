@@ -1,6 +1,7 @@
 package com.et.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
@@ -52,7 +54,8 @@ public class FarmLandMapping implements Serializable{
 	@Column(name="updator_id",insertable=false,updatable=true)
 	private Long updator_id      ;
 	@Column(name="createdOn",insertable=true,updatable=false)
-	private Date createdOn       ;
+	@CreationTimestamp
+	private LocalDateTime createdOn       ;
 	//private Long updatedOn       
 	public Long getFarmId() {
 		return this.farmId;
@@ -108,12 +111,16 @@ public class FarmLandMapping implements Serializable{
 	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
-	public Date getCreatedOn() {
-		return this.createdOn;
+	public LocalDateTime getCreatedOn() {
+		return createdOn;
 	}
-	public void setCreatedOn(Date createdOn) {
+	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
+	public void setSharePercentage(Integer sharePercentage) {
+		this.sharePercentage = sharePercentage;
+	}
+	
 
 
 

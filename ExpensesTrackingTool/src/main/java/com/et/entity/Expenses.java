@@ -1,5 +1,6 @@
 package com.et.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,9 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 @Table(name="Expenses")
@@ -32,6 +37,8 @@ public class Expenses {
 	@Column(name="Name")
 	private String name;
 	@Column(name="type_id")
+	@JoinColumn(table="Expense_Types",referencedColumnName="type_id")
+	
 	private Long typeId    ;
 	@Column(name="DateOfExp")
 	private Date dateOfExp    ;
@@ -43,20 +50,28 @@ public class Expenses {
 	private Double amount    ;
 	@Column(name="Discount")
 	private Double discount    ;
+	
 	@Column(name="Bill_id")
+	@JoinColumn(table="Billing_Information",referencedColumnName="Bill_id")
+	
 	private Double billId    ;
 	@Column(name="Description")
 	private String description    ;
+	
 	@Column(name="crop_id")
+	@JoinColumn(table="Crop_Information",referencedColumnName="crop_id")
 	private Long cropId    ;
 	@Column(name="Farm_id")
+	@JoinColumn(table="Farmer_Land_Mapping",referencedColumnName="Farm_id")
+	
 	private Long farmid    ;
-	@Column(name="creator_id",insertable=true,updatable=false)
+	@Column(name="creator_id",updatable=false)
 	private Long creator_id     ;
-	@Column(name="updator_id",insertable=false,updatable=true)
+	@Column(name="updator_id",insertable=false)
 	private Long updator_id      ;
-	@Column(name="createdOn" ,insertable=true,updatable=false)
-	private Date createdOn       ;
+	@Column(name="createdOn" ,updatable=false)
+	@CreationTimestamp
+	private LocalDateTime createdOn       ;
 	//private Long updatedOn       
 	/*	public String getDescription() {
 		return description;
@@ -149,12 +164,13 @@ public class Expenses {
 	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
-	public Date getCreatedOn() {
+	public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreatedOn(Date createdOn) {
+	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
+
 
 
 

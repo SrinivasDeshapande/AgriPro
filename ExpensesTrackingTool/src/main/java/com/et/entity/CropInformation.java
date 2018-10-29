@@ -1,5 +1,6 @@
 package com.et.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,7 +24,6 @@ import com.fasterxml.jackson.annotation.OptBoolean;
 @Entity
 @DynamicUpdate
 @Table(name="Crop_Information")
-@JsonIgnoreProperties("creator_id")
 public class CropInformation {
 
 	@Override
@@ -40,16 +44,24 @@ public class CropInformation {
 	
 	
 	@Column(name="Farm_id",nullable=false)
+	@JoinColumn(table="Crop_Information",referencedColumnName="crop_id")
 	private Long farmid     ;
 	
-	
+//	@ManyToMany(mappedBy="farmId")
+	private FarmLandMapping farmLandMapping;
+	public FarmLandMapping getFarmLandMapping() {
+		return farmLandMapping;
+	}
+	public void setFarmLandMapping(FarmLandMapping farmLandMapping) {
+		this.farmLandMapping = farmLandMapping;
+	}
 	@Column(name="creator_id" ,insertable=true,updatable=false)
-	@JsonMerge(OptBoolean.FALSE)
 	private Long creator_id     ;
 	@Column(name="updator_id" ,insertable=false,updatable=true)
 	private Long updator_id      ;
 	@Column(name="createdOn" ,insertable=true,updatable=false)
-	private Date createdOn       ;
+	@CreationTimestamp
+	private LocalDateTime createdOn       ;
 	//private Long updatedOn       
 	public Long getCropId() {
 		return cropId;
@@ -87,10 +99,10 @@ public class CropInformation {
 	public void setUpdator_id(Long updator_id) {
 		this.updator_id = updator_id;
 	}
-	public Date getCreatedOn() {
+	public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreatedOn(Date createdOn) {
+	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
 
