@@ -18,5 +18,7 @@ public interface ExpensesService {
 
 	public List<ExpenseTypes> getAllExpensesType();
 
+	public ExpenseTypes getExpensesTypeById(Long exptype);
+
 
 }

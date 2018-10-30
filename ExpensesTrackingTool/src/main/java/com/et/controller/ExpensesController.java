@@ -3,14 +3,17 @@ package com.et.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.et.entity.ExpenseTypes;
 import com.et.entity.Expenses;
 import com.et.service.ExpensesService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/Expense")
 public class ExpensesController {
@@ -39,10 +42,16 @@ public class ExpensesController {
 		}
 	}
 	
-	@RequestMapping(value="/getAllExpensesType",method=RequestMethod.POST)
+	@RequestMapping(value="/getAllExpensesType",method=RequestMethod.GET)
 	public ResponseEntity<?> getAllExpensesType() {
 		
 		return new ResponseEntity<>(expenseDao.getAllExpensesType(),HttpStatus.OK);
+		
+	}
+	@RequestMapping(value="/getExpensesTypeById",method=RequestMethod.GET)
+	public ResponseEntity<?> getExpensesTypeById(@RequestBody ExpenseTypes expType) {
+		
+		return new ResponseEntity<>(expenseDao.getExpensesTypeById(expType.getTypeId()),HttpStatus.OK);
 		
 	}
 }

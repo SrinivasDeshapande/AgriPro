@@ -1,8 +1,8 @@
 
 
-var etApp=angular.module("etApp",[ 'ngMaterial', 'ngMessages', 'material.svgAssetsCache','ngResource']);
+var etApp=angular.module("etApp",[ 'ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
-etApp.controller('homeController',['$scope','$log','$rootScope','homeService','$timeout','$q','$http','$resource',function($scope,$log,$rootScope,homeService,$timeout,$q, $http,$resource){
+etApp.controller('homeController',['$scope','$log','$rootScope','homeService','$timeout','$q','$http',function($scope,$log,$rootScope,homeService,$timeout,$q, $http){
 	//debugger;
 	console.log("homeController");
 	//$scope.expense={}
@@ -45,7 +45,7 @@ $scope.addNewCrop=function(crop){
 	self.simulateQuery = false;
 	self.isDisabled    = false;
 	self.crops         = loadAll();
-//	debugger;
+	debugger;
 	self.querySearch   = querySearch;
 	self.selectedItemChange = selectedItemChange;
 	self.searchTextChange   = searchTextChange;
@@ -162,7 +162,7 @@ $scope.addNewCrop=function(crop){
 	
 	function loadAll() {
 		var repos = [];
-		/*$http({
+		$http({
 			method: 'GET',
 			
 			url: 'localhost:7878/Crop/getAllCropInfo',
@@ -179,17 +179,7 @@ $scope.addNewCrop=function(crop){
 			console.log("error:: "+response)
 			// this function will be called when the request returned error status
 			
-		});*/
-		/*var entry=Entry.get({},function(){
-			console.log(entry);
-		})*/
-		var t=$resource("localhost:7878/Expense/getAllExpensesType");
-		t.query(function(data){
-			console.log("data"+data);
-		},function(err){
-			console.log("errror"+JSON.stringify(err) );
-		}) 
-		console.log("Test :: "+t);
+		});
 		return repos.map( function (crop) {
 			repo.cropName = crop.cropName.toLowerCase();
 		
@@ -351,20 +341,5 @@ function createFilterFor(query) {
 }*/
 	
 }]);
-/*allowCrossDomain = function(req, res, next) {
-	  res.header('Access-Control-Allow-Origin', '*');
-	  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-	  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-	  if ('OPTIONS' === req.method) {
-	    res.send(200);
-	  } else {
-	    next();
-	  }
-	};
 
-	etApp.use(allowCrossDomain);*/
 etApp.factory('homeService',homeService);
-etApp.factory('Entry',function($resource){
-	return $resource('localhost:7878/Expenses/getAllExpenseTypes');
-});
-

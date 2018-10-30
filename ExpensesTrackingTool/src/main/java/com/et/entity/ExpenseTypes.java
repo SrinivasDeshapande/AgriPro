@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
@@ -35,10 +36,13 @@ public class ExpenseTypes implements Serializable{
 	
 	@Column(name="type_id")
 	private Long typeId;
-	@Column(name="name")
+	
+	@Column(name="name",unique=true)
 	private String name;
+	
 //	@Column(name="Description")
-//	private String description    ; 
+//	private String description    ;
+	
 	@Column(name="creator_id",insertable=true,updatable=false)
 	private Long creator_id     ;
 	@Column(name="updator_id",insertable=false,updatable=true)

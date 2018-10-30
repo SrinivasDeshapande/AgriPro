@@ -42,7 +42,15 @@ public class ExpensesServiceImpl implements ExpensesService{
 	@Override
 	public List<ExpenseTypes> getAllExpensesType() {
 		// TODO Auto-generated method stub
-		return null;
+		return expenseTypeRepos.findAll();
 	}
 
+	@Override
+	public ExpenseTypes getExpensesTypeById(Long exptype) {
+		// TODO Auto-generated method stub
+		return expenseTypeRepos.getExpensesById(exptype);
+	}
+
+	
+	
 }
