@@ -40,12 +40,15 @@
 					<div class="controls" id="contact-form">
 
 						<div class="row">
+						<input id="form_creator_id"
+										type="text" hidden=true value="1" name="name" class="form-control"
+										ng-model="expense.creator_id"
+										>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="form_name">Item *</label> <input id="form_name"
 										type="text" name="name" class="form-control"
-										placeholder="Please enter your 
-firstname *"
+										placeholder="Please enter Item name *"
 										required="required" data-error="Item is required."
 										ng-model="expense.name"
 										>
@@ -54,12 +57,47 @@ firstname *"
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="form_lastname">Item Type *</label> <input
-										id="form_lastname" type="text" name="surname"
-										class="form-control"
+									<label for="form_typename">Item Type *</label> <input
+									id="form_typename" type="text" name="surname"
+									class="form-control" placeholder="Please enter 
+item type *"
+									required="required" data-error="item type is required."
+									ng-model="expense.typename"
+									>
+									<input
+									id="form_lastname" type="text" name="surname"
+									class="form-control" hidden="true"
+									ng-model="expense.typeid"
+									>
+								<div class="help-block with-errors"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="form_cropname">Crop Name *</label> <input
+										id="form_cropname" type="text" name="cropname" class="form-control"
 										placeholder="Please enter 
-your lastname *"
-										required="required" data-error="Lastname is required.">
+crop Name *" required="required"
+										data-error="crop name is required."
+										ng-model="expense.cropname"
+										>
+										<input
+										id="form_cropid" type="text" hidden="true"  name="cropid" class="form-control"
+										ng-model="expense.cropid"
+										>
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="form_date">Date *</label> <input id="form_date"
+										type="date"  name="date"  class="form-control"
+										placeholder="Please enter Date *" required="required"
+										data-error="Date is required."
+										ng-model="expense.dateOfExp"
+										>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -67,43 +105,22 @@ your lastname *"
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="form_email">Crop Name *</label> <input
-										id="form_email" type="email" name="email" class="form-control"
+									<label for="form_quantity">Quantity *</label> <input
+										id="form_quantity" type="number"  step=.0001 min=0 value=0 pattern="^\d+(?:\.\d{1,4})?$" name="quantity" class="form-control"
 										placeholder="Please enter your 
-email *" required="required"
-										data-error="Valid email is required.">
+quantity*" required="required"
+										data-error="Quantity is required."
+										ng-model="expense.quantity" >
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="form_email">Date *</label> <input id="form_email"
-										type="email" name="email" class="form-control"
-										placeholder="Please enter your 
-email *" required="required"
-										data-error="Valid email is required.">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="form_email">Quantity *</label> <input
-										id="form_email" type="email" name="email" class="form-control"
-										placeholder="Please enter your 
-email *" required="required"
-										data-error="Valid email is required.">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="form_email">Rate *</label> <input id="form_email"
-										type="email" name="email" class="form-control"
-										placeholder="Please enter your 
-email *" required="required"
-										data-error="Valid email is required.">
+									<label for="form_rate">Rate *</label> <input id="form_rate"
+										type="number" step=.0001 min=0 value=0 pattern="^\d+(?:\.\d{1,4})?$" name="rate" class="form-control"
+										placeholder="Please enter rate *" required="required"
+										data-error="Rate is required."
+										ng-model="expense.rate" >
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -111,29 +128,21 @@ email *" required="required"
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="form_email">Amout *</label> <input id="form_email"
-										type="email" name="email" class="form-control" readonly=true
-										placeholder="Please 
-enter your email *"
-										data-error="Valid email is required.">
+									<label for="form_email">Amount *</label> <input id="form_amount"
+										type="number" name="amount" step=.01 min=0 value=0 pattern="^\d+(?:\.\d{1,4})?$" 
+										class="form-control" readonly=true
+										ng-model="expense.amount" value= {{ expense.quantity * expense.rate}}>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="form_need">Please specify your need *</label> <select
-										id="form_need" name="need" class="form-control"
-										required="required" data-error="Please specify 
-your need.">
-										<option value=""></option>
-										<option value="Request quotation">Request quotation</option>
-										<option value="Request order status">Request order
-											status</option>
-										<option value="Request copy of an invoice">Request
-											copy of an invoice</option>
-										<option value="Other">Other</option>
-									</select>
+									<label for="form_need">Bill id *</label> 
+									<input id="form_billid"
+										type="number" name="billid" min=0 value=0 
+										class="form-control" 
+										ng-model="expense.billId">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -141,16 +150,18 @@ your need.">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="form_message">Message *</label>
-									<textarea id="form_message" name="message" class="form-control"
-										placeholder="Message for me *" rows="4" required="required"
-										data-error="Please, leave us a message."></textarea>
+									<label for="form_description">description *</label>
+									<textarea id="form_description" name="description" class="form-control"
+										placeholder="Description *" rows="2" 
+										data-error="Enter description"
+										ng-model="expense.description"
+										></textarea>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<input type="submit" class="btn btn-success btn-send"
-									value="Send message" ng-click="submitData()">
+									value="Send message" ng-click="submitData(expense)">
 							</div>
 						</div>
 
