@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.et.entity.CropInformation;
 import com.et.service.CropInformationService;
 
-@CrossOrigin
-@RestController
+@CrossOrigin(origins= {"http://localhost:7880/"})@RestController
 @RequestMapping("/Crop")
 public class InformationController {
 	

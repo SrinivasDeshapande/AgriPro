@@ -13,9 +13,10 @@ import com.et.entity.ExpenseTypes;
 import com.et.entity.Expenses;
 import com.et.service.ExpensesService;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/Expense")
+
+@CrossOrigin
 public class ExpensesController {
 	
 	@Autowired

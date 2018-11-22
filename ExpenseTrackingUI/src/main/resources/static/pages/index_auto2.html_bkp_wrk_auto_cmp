@@ -83,11 +83,11 @@ item type *"
 											style="width:340px ;padding:0"
 												ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache"
 												md-selected-item="ctrl.selectedItem"
-												md-search-text-change="ctrl.searchTextChange(expense.expenseTypeName)"
-												md-search-text="expense.expenseTypeName"
+												md-search-text-change="ctrl.searchTextChange(expense.name)"
+												md-search-text="expense.name"
 												md-selected-item-change="ctrl.selectedItemChange(item)"
-												md-items="item in ctrl.querySearch(expense.expenseTypeName)"
-												md-item-text="item.expenseTypeName" md-min-length="0"
+												md-items="item in ctrl.querySearch(expense.name)"
+												md-item-text="item.name" md-min-length="0"
 												placeholder="Pick a Crop name"
 												md-menu-class="autocomplete-custom-template"
 												md-menu-container-class="custom-container" 
@@ -96,9 +96,9 @@ item type *"
 												>
 										
 											<md-item-template> <span
-												class="item-title"> <span> {{item.expenseTypeName}} </span> <span
+												class="item-title"> <span> {{item.name}} </span> <span
 												class="item-metadata"> <span> <strong>{{item.typeId}}</strong>
-														Type id
+														watchers
 												</span> <span> <strong>{{item.creator_id}}</strong> forks
 												</span>
 											</span></md-item-template>
@@ -107,12 +107,12 @@ item type *"
 											<!-- <form ng-submit="addNewCrop(crop)"> -->
 											<div class="col-sm-6">
 											 <input id="form_cropid" 
-										type="text" ng-model="expenseType.name" ng-value="expenseType.expenseTypeName=expense.expenseTypeName" name="addcropid" class="form-control"
+										type="text" ng-model="crop.name" ng-value="crop.name=expense.cropname" name="addcropid" class="form-control"
 										>
 										
 											</div>
 											<div class="col-sm-6">
-										<input type="button" ng-click="addNewExpenseType(expenseType)" value="add" class="btn btn-success btn-send">
+										<input type="button" ng-click="addNewCrop(crop)" value="add" class="btn btn-success btn-send">
 											</div>
 											<!-- </form> -->
 											</div>

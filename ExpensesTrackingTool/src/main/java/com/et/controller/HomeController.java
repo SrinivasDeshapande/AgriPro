@@ -15,7 +15,7 @@ import com.et.entity.FarmLandMapping;
 import com.et.service.CropInformationService;
 import com.et.service.FarmLandMappingService;
 
-@CrossOrigin
+@CrossOrigin(origins= {"http://localhost:7880/"})
 @RestController
 //@RequestMapping(value="/",method=RequestMethod.GET)
 @RequestMapping("/")
