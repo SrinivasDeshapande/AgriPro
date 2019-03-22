@@ -1,0 +1,25 @@
+.nbar-container{
+    height: 45Px;
+    display: flex;
+    background-color: #2a6346;
+    
+    margin-top: -8px;
+    margin-left: -8px;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    .nbar-text{
+        text-align: center;
+        //width: calc(var(--navbar-width)/2);
+       // left: calc(var(--navbar-width)/2);;
+        display: block;
+        margin: 13px;
+        font-size: 16px;
+        font-weight: bold;
+
+    }
+    .i{
+        align-self: center;
+    }
+    
+}
