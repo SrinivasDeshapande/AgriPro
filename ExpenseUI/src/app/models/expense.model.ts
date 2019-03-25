@@ -16,7 +16,7 @@ export class Expense implements Deserializable{
 	public farmid: number;
 	public creator_id: number;
     public updator_id: number;
-	  
+	
 
     deserialize(input: any) {
         Object.assign(this, input);
