@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./app/basestyles.scss";
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config($font-family: $app-font-regular);
+@include mat-core($custom-typography);
