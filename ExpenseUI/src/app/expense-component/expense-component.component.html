@@ -5,23 +5,27 @@
     <mat-card-content>
       <mat-form-field appearance="outline" >
         <mat-label>Item purchased</mat-label>
-        <input matInput [(ngModel]="expenseVO.name">
-        <!-- <mat-hint *ngIf="validatonErrorObj.name">{{validatonErrorObj.name}}</mat-hint> -->
+        <input matInput  type="text" [(ngModel]="expenseVO.name">
+        <!-- <mat-hint *ngIf="validatonErrorObj.name">{{validatonErrorObj.name}}</mat-hint>
+        -->
       </mat-form-field>
 
-      <label class="custom-form-field" [ngClass]="{'error':validatonErrorObj.advertiser}">
+      <label class="custom-form-field" >
         <mat-form-field class="example-full-width" appearance="outline">
-          <input title="{{campaignVO.advertiser?campaignVO.advertiser.advertiserName:''}}" type="text" [(ngModel)]="campaignVO.advertiser"
-            aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'>
-            <mat-option title="{{option.advertiserName}}" *ngFor="let option of filteredOptions | async" [value]="option">
-              {{option.advertiserName}}
+          <input title="{{expenseVO.expenseType? expenseVO.expenseType.name:''}}"  [formControl]="myControl" [(ngModel)]="expenseVO.expenseType" 
+            aria-label="Number" matInput [matAutocomplete]="auto" >
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+           <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
+           <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
+            <mat-option title="{{option.name}}" *ngFor="let option of expenseData.expenseTypeList | async" [value]="option">
+              {{option.name}}
             </mat-option>
           </mat-autocomplete>
-          <mat-label>Advertiser</mat-label>
+          <mat-label>Expense Type</mat-label>
           <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
         </mat-form-field>
       </label>
+      
     </mat-card-content>
   </mat-card>
 </div>

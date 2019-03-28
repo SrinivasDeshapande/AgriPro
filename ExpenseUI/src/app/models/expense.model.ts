@@ -1,4 +1,5 @@
 import { Deserializable} from '../interfaces/deserializable';
+import { ExpenseTypes } from './expenseTrack.model';
 
 export class Expense implements Deserializable{
 
@@ -16,7 +17,7 @@ export class Expense implements Deserializable{
 	public farmid: number;
 	public creator_id: number;
     public updator_id: number;
-	
+	public expenseType:ExpenseTypes;
 
     deserialize(input: any) {
         Object.assign(this, input);
