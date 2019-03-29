@@ -93,8 +93,5 @@ create table Expense_Types(
 );
 
 alter table Farmer_Land_Mapping  add column Season varchar(100) after AreaOfLand;
-
-
 alter table Expense_Types add constraint uk unique (name);
-
-
+alter table billing_information add column billNo int(11) after billerName;

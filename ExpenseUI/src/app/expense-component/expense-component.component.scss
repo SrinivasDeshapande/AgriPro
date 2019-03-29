@@ -1,15 +1,30 @@
 .custom-form-field{
     padding: 15px;
     
+    
 }
 .expense-form-data{
-    padding: 20px;  
+    margin: 40px 10px 0px 0px;
+    padding: 30px;
+    border: beige;
+    color: #f8e2e2;
+    background: #fafcf1;
+    
+    // z-index: 100;
+    height: 83%;
+    max-height: calc(100-40px);
+    font-size: 14px;
+}
+.mat-card {
+    background: #d7ece699;
+    color: rgba(0,0,0,.87);
 }
 .mat-option{
     background-color: rgba(167, 238, 149, 0.801);
     border: 1px;
     border-color: black;
     overflow: hidden;
+    align-content: center;
     .hover{
         background-color: rgba(207, 241, 111, 0.925);
     }
