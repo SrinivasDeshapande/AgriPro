@@ -11,5 +11,8 @@ import com.et.entity.CropInformation;
 public interface BillingInformationRepository extends CrudRepository<BillingInformation, Long>{
 
 	@Query(value=" from BillingInformation where Bill_id = ?1 ")
-	public CropInformation getBillerInfoById(long cropId);
+	public BillingInformation getBillerInfoById(long cropId);
+
+	@Query(value=" from BillingInformation where billNo = ?1 ")
+	public BillingInformation getBillerInfoByNo(long cropId);
 }

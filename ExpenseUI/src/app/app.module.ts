@@ -8,11 +8,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CommonalertsComponent } from './dialog/commonalerts/commonalerts.component';
 @NgModule({
   declarations: [
     AppComponent,
     ExpenseComponentComponent,
-    NavbarComponent
+    NavbarComponent,
+    CommonalertsComponent
   ],
   imports: [
     BrowserModule,

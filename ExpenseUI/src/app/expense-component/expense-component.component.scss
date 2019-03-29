@@ -1,9 +1,41 @@
 .custom-form-field{
     padding: 15px;
+    
+}
+.expense-form-data{
+    padding: 20px;  
 }
 .mat-option{
     background-color: rgba(167, 238, 149, 0.801);
     border: 1px;
     border-color: black;
     overflow: hidden;
+    .hover{
+        background-color: rgba(207, 241, 111, 0.925);
+    }
+}
+
+.addBtn{
+    width: 40px;
+    height: 40px;
+    color: unset;
+    z-index: 99999;
+    padding: 0px 0px 0px 0px;
+    border: unset;
+    background-color: unset;
+    //border-size: 5px 5px 5px 5px;
+  position: relative;
+  left: 4px;
+    top: 11px;
+    
+}
+.fa-plus-square {
+    block-size: unset;
+  //  overflow-block: unset;
+   // border-size: 5px 5px 5px 5px;
+   position: absolute;
+   left: 1px;
+   top: -2px;
+
+
 }

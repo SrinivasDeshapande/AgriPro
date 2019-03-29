@@ -2,16 +2,18 @@ import { Observable } from 'rxjs';
 import { Deserializable } from '../interfaces/deserializable';
 
 export class ExpesnesData{
-    public billingList: Array<BillingInformation>=[];
-    public cropsList: Array<CropsInformation>=[];
+    public billingList: Observable<BillingInformation[]>;
+    public cropsList: Observable<CropsInformation[]>;
     public expenseTypeList:Observable<ExpenseTypes[]>;
-    public framLandMappingList: Array<FarmLandMapping>=[];
+    public framLandMappingList: Observable<FarmLandMapping[]>;
 }
 
 
 export class BillingInformation implements Deserializable{
     public billId : number = 0;
-	public billerName : string;
+    public billerName : string;
+    public billNo:number=0;
+    public billerview:string="";
 	public description: string;
 	public billDate: Date;
 	public creator_id: number;
@@ -52,7 +54,7 @@ export class ExpenseTypes implements Deserializable{
       }
 }
 
-export class FarmLandMapping{
+export class FarmLandMapping implements Deserializable{
     public farmId : number = 0;
     public farmerName : string;
     public landDetails: string;
@@ -63,5 +65,8 @@ export class FarmLandMapping{
     public creator_id: number;
     public updator_id: number;
     public createdOn: Date;
-    
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
+      }
 }

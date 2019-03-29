@@ -18,15 +18,23 @@ export class CommonService {
     // }
    }
    
+   getAllCropsInfo(){
+    return this.httpClient.get<any>(this.API_URL+'/getAllCropInfo').pipe(
+      map(response => response)
+    );
+  }
 
   getAllExpenseTypes() {
     return this.httpClient.get<any>(this.API_URL + '/getAllExpensesType').pipe(
-      
-      map(
-        response => response)
-       
+      map(response => response)
     );
-    
   }
+  getAllBillsInfo() {
+    return this.httpClient.get<any>(this.API_URL + '/getAllBillsInfo').pipe(
+      map(response => response)
+    );
+  }
+
+  
 
 }

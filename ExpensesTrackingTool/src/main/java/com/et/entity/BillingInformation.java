@@ -35,6 +35,15 @@ public class BillingInformation implements Serializable {
 	private Long billId;
 	@Column(name="BillerName")
 	private String billerName;
+	@Column(name="BillNo")
+	private Long billNo;
+	
+	@Override
+	public String toString() {
+		return "BillingInformation [billId=" + billId + ", billerName=" + billerName + ", billNo=" + billNo
+				+ ", description=" + description + ", billDate=" + billDate + ", creator_id=" + creator_id
+				+ ", updator_id=" + updator_id + ", createdOn=" + createdOn + "]";
+	}
 	@Column(name="Description")
 	
 	private String description    ; 
@@ -53,6 +62,12 @@ public class BillingInformation implements Serializable {
 	private LocalDateTime createdOn       ;
 	//private Long updatedOn       
 	
+	public Long getBillNo() {
+		return billNo;
+	}
+	public void setBillNo(Long billNo) {
+		this.billNo = billNo;
+	}
 	public String getDescription() {
 		return description;
 	}

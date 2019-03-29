@@ -48,13 +48,12 @@ public class CropInformation {
 	private Long farmid     ;
 	
 //	@ManyToMany(mappedBy="farmId")
-	private FarmLandMapping farmLandMapping;
-	public FarmLandMapping getFarmLandMapping() {
-		return farmLandMapping;
-	}
-	public void setFarmLandMapping(FarmLandMapping farmLandMapping) {
-		this.farmLandMapping = farmLandMapping;
-	}
+	/*
+	 * private FarmLandMapping farmLandMapping; public FarmLandMapping
+	 * getFarmLandMapping() { return farmLandMapping; } public void
+	 * setFarmLandMapping(FarmLandMapping farmLandMapping) { this.farmLandMapping =
+	 * farmLandMapping; }
+	 */
 	@Column(name="creator_id" ,insertable=true,updatable=false)
 	private Long creator_id     ;
 	@Column(name="updator_id" ,insertable=false,updatable=true)

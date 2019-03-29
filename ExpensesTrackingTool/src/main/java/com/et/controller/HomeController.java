@@ -15,33 +15,15 @@ import com.et.entity.FarmLandMapping;
 import com.et.service.CropInformationService;
 import com.et.service.FarmLandMappingService;
 
-@CrossOrigin(origins= {"http://localhost:7880/"})
+@CrossOrigin
 @RestController
 //@RequestMapping(value="/",method=RequestMethod.GET)
-
 public class HomeController {
 	//@RequestMapping(value="/",method=RequestMethod.GET)
-	@Autowired
-	CropInformationService cropDao;
-
-	@Autowired
-	FarmLandMappingService farmLandDao;
-	
 	@GetMapping("home")
 	public ResponseEntity<?> getWelcome(){
 		System.out.println("Working ");
 		return new ResponseEntity<>("Hello",HttpStatus.OK);
-	}
-
-
-	
-	
-	@RequestMapping(value="insertFarmLandMapping",method=RequestMethod.POST)
-	public ResponseEntity<?> insertFarmLandMap(@RequestBody FarmLandMapping farmLandMap) {
-		System.out.println(farmLandMap.toString());
-		
-		System.out.println("UpdatorID"+farmLandMap.getUpdator_id());
-		return new ResponseEntity<>(farmLandDao.insertFarmLandMapping(farmLandMap),HttpStatus.OK);
 	}
 
 }

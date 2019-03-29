@@ -5,16 +5,16 @@
     <mat-card-content>
       <mat-form-field appearance="outline" >
         <mat-label>Item purchased</mat-label>
-        <input matInput  type="text" [(ngModel]="expenseVO.name">
+        <input matInput  type="text" [(ngModel)]="expenseVO.name">
         <!-- <mat-hint *ngIf="validatonErrorObj.name">{{validatonErrorObj.name}}</mat-hint>
-        -->
+        --> 
       </mat-form-field>
 
       <label class="custom-form-field" >
         <mat-form-field class="example-full-width" appearance="outline">
           <input title="{{expenseVO.expenseType? expenseVO.expenseType.name:''}}"  [formControl]="myControl" [(ngModel)]="expenseVO.expenseType" 
-            aria-label="Number" matInput [matAutocomplete]="auto" >
-          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+            aria-label="Number" matInput [matAutocomplete]="expenseTypeAuto" >
+          <mat-autocomplete #expenseTypeAuto="matAutocomplete" [displayWith]="displayFn" >
            <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
            <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
             <mat-option title="{{option.name}}" *ngFor="let option of expenseData.expenseTypeList | async" [value]="option">
@@ -24,7 +24,45 @@
           <mat-label>Expense Type</mat-label>
           <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
         </mat-form-field>
+        <button class="addBtn"> <i class="fa fa-plus-square fa-3x  "></i> </button>
       </label>
+      <!-- <label class="custom-form-field" >   -->
+      
+       <!-- </label> -->
+      <!-- <i class="fas fa-plus-square"> </i> -->
+      <label class="custom-form-field" >
+        <mat-form-field class="example-full-width" appearance="outline">
+          <input title="{{expenseVO.cropInfo? expenseVO.cropInfo.cropName:''}}"  [formControl]="cropinfoControl" [(ngModel)]="expenseVO.cropInfo" 
+            aria-label="Number" matInput [matAutocomplete]="cropsInfo" >
+          <mat-autocomplete #cropsInfo="matAutocomplete" [displayWith]="displayCropinfoControl" >
+           <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
+           <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
+            <mat-option title="{{option1.cropName}}" *ngFor="let option1 of expenseData.cropsList | async" [value]="option1">
+              {{option1.cropName}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-label>Crop</mat-label>
+          <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
+        </mat-form-field>
+
+      </label>
+<label class="custom-form-field" >
+        <mat-form-field class="example-full-width" appearance="outline">
+          <input title="{{expenseVO.billInfo? expenseVO.billInfo.billNo +' - '+expenseVO.billInfo.billerName:''}}"  [formControl]="billControl" [(ngModel)]="expenseVO.billInfo" 
+            aria-label="Number" matInput [matAutocomplete]="billInfo" >
+          <mat-autocomplete #billInfo="matAutocomplete" [displayWith]="displayBillsControl" >
+           <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
+           <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
+            <mat-option title="{{option1.billerName}}" *ngFor="let option1 of expenseData.billingList | async" [value]="option1">
+              {{option1.billNo + " - " + option1.billerName}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-label>Bill</mat-label>
+          <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
+        </mat-form-field>
+        
+      </label>
+
       
     </mat-card-content>
   </mat-card>
