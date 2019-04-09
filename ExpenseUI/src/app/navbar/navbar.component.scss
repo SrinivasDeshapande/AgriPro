@@ -1,9 +1,9 @@
 .fixed-top{
-    position: absolute;
+        position: absolute;
     top: -5px;
     right: 0px;
     left: -8px;
-    z-index: 1007
+    z-index: 1007s
 }
 .nbar-container{
     height: 2%;
@@ -20,6 +20,7 @@
     overflow: unset;
     // overflow-x: hidden;
     max-width: calc(100% + 15px);
+    vertical-align: middle;
     .nbar-text{
         text-align: center;
         //width: calc(var(--navbar-width)/2);
