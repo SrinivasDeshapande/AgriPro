@@ -1,101 +1,98 @@
-<app-navbar></app-navbar>
-<div class="fullwidth">
-  <div class="expense-form-data">
-    <mat-card>
-      <mat-card-title>Add new Expense</mat-card-title>
-      <mat-card-content>
+<app-navbar> </app-navbar>
+  <div class="fullwidth">
+  <div class="form-container pd-20">
+    <div class="expense-form-data">
+      <mat-card>
+        <mat-card-title>Add new Expense</mat-card-title>
+        <mat-card-content>
           <div class="row">
-        <label class="custom-form-field">
-            <div class="col-lg-5">
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Item purchased</mat-label>
-            <input matInput type="text" [(ngModel)]="expenseVO.name">
-            <!-- <mat-hint *ngIf="validatonErrorObj.name">{{validatonErrorObj.name}}</mat-hint>
+            <label class="custom-form-field">
+              <div class="col-lg-5">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Item purchased</mat-label>
+                  <input matInput type="text" [(ngModel)]="expenseVO.name">
+                  <!-- <mat-hint *ngIf="validatonErrorObj.name">{{validatonErrorObj.name}}</mat-hint>
           -->
-       
-          </mat-form-field>
-        </div>
-        </label>
-      </div>
-        <div class="row">
-       
-        
-            <div class="col-lg-5">
-                <label class="custom-form-field">
-              <mat-form-field class="example-full-width " appearance="outline">
-                <input title="{{expenseVO.expenseType? expenseVO.expenseType.name:''}}" [formControl]="myControl"
-                  [(ngModel)]="expenseVO.expenseType" aria-label="Number" matInput [matAutocomplete]="expenseTypeAuto">
-                <mat-autocomplete #expenseTypeAuto="matAutocomplete" [displayWith]="displayFn">
-                  <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
-                  <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
-                  <mat-option title="{{option.name}}" *ngFor="let option of expenseData.expenseTypeList | async"
-                    [value]="option">
-                    {{option.name}}
-                  </mat-option>
-                </mat-autocomplete>
-                <mat-label>Expense Type</mat-label>
-                <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
-              </mat-form-field>
+                </mat-form-field>
+              </div>
             </label>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <label class="custom-form-field">
+                <mat-form-field class="example-full-width " appearance="outline">
+                  <input title="{{expenseVO.expenseType? expenseVO.expenseType.name:''}}" [formControl]="myControl"
+                    [(ngModel)]="expenseVO.expenseType" aria-label="Number" matInput
+                    [matAutocomplete]="expenseTypeAuto">
+                  <mat-autocomplete #expenseTypeAuto="matAutocomplete" [displayWith]="displayFn">
+                    <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
+                    <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
+                    <mat-option title="{{option.name}}" *ngFor="let option of expenseData.expenseTypeList | async"
+                      [value]="option">
+                      {{option.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-label>Expense Type</mat-label>
+                  <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
+                </mat-form-field>
+              </label>
             </div>
-            <div class="col-lg-2" style="padding-top: 10px;">
+            <div class="col-lg-2 pd-tp-10">
               <button class="addBtn"> <i class="fa fa-plus-square fa-3x  "></i> </button>
             </div>
-          
-       
-        </div>
-     
-        <!-- <label class="custom-form-field" > </label> -->
-
-        <div class="row">
-        <!-- <i class="fas fa-plus-square"> </i> -->
-        <label class="custom-form-field">
-            <div class="col-lg-5">
-          <mat-form-field class="example-full-width" appearance="outline">
-            <input title="{{expenseVO.cropInfo? expenseVO.cropInfo.cropName:''}}" [formControl]="cropinfoControl"
-              [(ngModel)]="expenseVO.cropInfo" aria-label="Number" matInput [matAutocomplete]="cropsInfo">
-            <mat-autocomplete #cropsInfo="matAutocomplete" [displayWith]="displayCropinfoControl">
-              <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
-              <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
-              <mat-option title="{{option1.cropName}}" *ngFor="let option1 of expenseData.cropsList | async" [value]="option1">
-                {{option1.cropName}}
-              </mat-option>
-            </mat-autocomplete>
-            <mat-label>Crop</mat-label>
-            <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
-          </mat-form-field>
-        </div>
-      </label>
-        <div class="col-lg-2" style="padding-top: 10px;">
-            <button class="addBtn"> <i class="fa fa-plus-square fa-3x  "></i> </button>
           </div>
-        </div>
-        <div class="row">
-        <label class="custom-form-field">
-            <div class="col-lg-5">
-          <mat-form-field class="example-full-width" appearance="outline">
-            <input title="{{expenseVO.billInfo? expenseVO.billInfo.billNo +' - '+expenseVO.billInfo.billerName:''}}"
-              [formControl]="billControl" [(ngModel)]="expenseVO.billInfo" aria-label="Number" matInput
-              [matAutocomplete]="billInfo">
-            <mat-autocomplete #billInfo="matAutocomplete" [displayWith]="displayBillsControl">
-              <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
-              <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
-              <mat-option title="{{option1.billerName}}" *ngFor="let option1 of expenseData.billingList | async"
-                [value]="option1">
-                {{option1.billNo + " - " + option1.billerName}}
-              </mat-option>
-            </mat-autocomplete>
-            <mat-label>Bill</mat-label>
-            <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
-          </mat-form-field>
+          <!-- <label class="custom-form-field" > </label> -->
+          <div class="row">
+            <!-- <i class="fas fa-plus-square"> </i> -->
+            <label class="custom-form-field">
+              <div class="col-lg-5">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <input title="{{expenseVO.cropInfo? expenseVO.cropInfo.cropName:''}}" [formControl]="cropinfoControl"
+                    [(ngModel)]="expenseVO.cropInfo" aria-label="Number" matInput [matAutocomplete]="cropsInfo">
+                  <mat-autocomplete #cropsInfo="matAutocomplete" [displayWith]="displayCropinfoControl">
+                    <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
+                    <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
+                    <mat-option title="{{option1.cropName}}" *ngFor="let option1 of expenseData.cropsList | async"
+                      [value]="option1">
+                      {{option1.cropName}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-label>Crop</mat-label>
+                  <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
+                </mat-form-field>
+              </div>
+            </label>
+            <div class="col-lg-2  pd-tp-10">
+              <button class="addBtn"> <i class="fa fa-plus-square fa-3x  "></i> </button>
             </div>
-          </label>
-        <div class="col-lg-2" style="padding-top: 10px;">
-            <button class="addBtn"> <i class="fa fa-plus-square fa-3x  "></i> </button>
           </div>
-      </div>
-
-      </mat-card-content>
-    </mat-card>
+          <div class="row">
+            <label class="custom-form-field">
+              <div class="col-lg-5">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <input
+                    title="{{expenseVO.billInfo? expenseVO.billInfo.billNo +' - '+expenseVO.billInfo.billerName:''}}"
+                    [formControl]="billControl" [(ngModel)]="expenseVO.billInfo" aria-label="Number" matInput
+                    [matAutocomplete]="billInfo">
+                  <mat-autocomplete #billInfo="matAutocomplete" [displayWith]="displayBillsControl">
+                    <!-- [ngClass]="{'error':validatonErrorObj.advertiser}" -->
+                    <!-- (optionSelected)='getCakeCreativeList($event.option.value);validatonErrorObj.advertiser=undefined'-->
+                    <mat-option title="{{option1.billerName}}" *ngFor="let option1 of expenseData.billingList | async"
+                      [value]="option1">
+                      {{option1.billNo + " - " + option1.billerName}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-label>Bill</mat-label>
+                  <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
+                </mat-form-field>
+              </div>
+            </label>
+            <div class="col-lg-2 pd-tp-10">
+              <button class="addBtn"> <i class="fa fa-plus-square fa-3x  "></i> </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>

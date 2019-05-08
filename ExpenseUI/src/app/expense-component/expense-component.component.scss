@@ -1,13 +1,25 @@
+@import '../basestyles.scss';
 
 .fullwidth{
-    max-height: 800px;
+    max-height:$max-win-height - 40px;
+    max-width: $max-win-width;
+    border: beige;
+    color: #f8e2e2;
+    background: #f0f1e9;
+    height: 100%;
+    // width: 100vh;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+.form-container{
+    margin: 40px 10px 0px 0px;
+    // padding: 20px;
     .expense-form-data{
         // overflow: hidden;
-        margin: 40px 10px 0px 0px;
+        // margin: 40px 10px 0px 0px;
         padding: 30px;
-        border: beige;
-        color: #f8e2e2;
-        background: #fafcf1;
+      
         position: inherit;
         // top: 61px;
         z-index: 10000;
@@ -31,6 +43,7 @@
     }
 }
 .mat-card {
+    
     background: #d7ece699;
     color: rgba(0,0,0,.87);
     width:40%;
