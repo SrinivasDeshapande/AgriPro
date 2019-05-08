@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExpenseComponentComponent } from './expense-component/expense-component.component';
+import { ExpenseComponentComponent } from './expenses/expense.component';
 
 @Component({
   selector: 'app-root',

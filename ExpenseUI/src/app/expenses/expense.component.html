@@ -1,5 +1,5 @@
 <app-navbar> </app-navbar>
-  <div class="fullwidth">
+<div class="fullwidth">
   <div class="form-container pd-20">
     <div class="expense-form-data">
       <mat-card>
@@ -7,7 +7,7 @@
         <mat-card-content>
           <div class="row">
             <label class="custom-form-field">
-              <div class="col-lg-5">
+            <div class="col-lg-5">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>Item purchased</mat-label>
                   <input matInput type="text" [(ngModel)]="expenseVO.name">
@@ -16,10 +16,11 @@
                 </mat-form-field>
               </div>
             </label>
+            <div class="col-lg-2 pd-tp-10"> </div>
           </div>
           <div class="row">
+            <label class="custom-form-field">
             <div class="col-lg-5">
-              <label class="custom-form-field">
                 <mat-form-field class="example-full-width " appearance="outline">
                   <input title="{{expenseVO.expenseType? expenseVO.expenseType.name:''}}" [formControl]="myControl"
                     [(ngModel)]="expenseVO.expenseType" aria-label="Number" matInput
@@ -35,8 +36,8 @@
                   <mat-label>Expense Type</mat-label>
                   <!-- <mat-hint *ngIf="validatonErrorObj.advertiser">{{validatonErrorObj.advertiser}}</mat-hint> -->
                 </mat-form-field>
-              </label>
-            </div>
+              </div>
+            </label>
             <div class="col-lg-2 pd-tp-10">
               <button class="addBtn"> <i class="fa fa-plus-square fa-3x  "></i> </button>
             </div>

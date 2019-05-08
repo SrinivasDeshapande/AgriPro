@@ -11,9 +11,9 @@ import { startWith, map } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-expense-component',
-  templateUrl: './expense-component.component.html',
-  styleUrls: ['./expense-component.component.scss']
+  selector: 'app-expense',
+  templateUrl: './expense.component.html',
+  styleUrls: ['./expense.component.scss']
 })
 export class ExpenseComponentComponent implements OnInit {
   expenseVO: Expense = new Expense();
