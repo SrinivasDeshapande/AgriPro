@@ -3,6 +3,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ExpenseTypes } from '../models/expenseTrack.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,11 @@ export class CommonService {
     return this.httpClient.get<any>(this.API_URL + '/getAllBillsInfo').pipe(
       map(response => response)
     );
+  }
+  addExpenseType(expenseType:ExpenseTypes){
+    return this.httpClient.post<any>(this.API_URL+'',expenseType).pipe(
+      map(response => response)
+    )
   }
 
   

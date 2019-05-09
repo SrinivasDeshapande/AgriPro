@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ExpenseComponentComponent } from './expenses/expense.component';
+import { ExpenseComponent } from './expenses/expense.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CommonalertsComponent } from './dialog/commonalerts/commonalerts.component';
+import { ExpenseTypeComponent } from './expense-type/expense-type.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ExpenseComponentComponent,
+    ExpenseComponent,
     NavbarComponent,
-    CommonalertsComponent
+    CommonalertsComponent,
+    ExpenseTypeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +31,12 @@ import { CommonalertsComponent } from './dialog/commonalerts/commonalerts.compon
 
   ],
   providers: [],
-  bootstrap: [AppComponent,
-    ExpenseComponentComponent,
-    NavbarComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ExpenseTypeComponent,
+    DashboardComponent,
+    ExpenseComponent,
+    NavbarComponent
+  ]
 })
 export class AppModule { }

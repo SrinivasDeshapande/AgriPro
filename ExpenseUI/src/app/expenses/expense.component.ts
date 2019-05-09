@@ -8,25 +8,34 @@ import { ExpesnesData, ExpenseTypes, CropsInformation, BillingInformation } from
 import { CommonService } from '../commonservice/common.service';
 import {NgForm} from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
-
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import {Router, NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-expense',
   templateUrl: './expense.component.html',
   styleUrls: ['./expense.component.scss']
 })
-export class ExpenseComponentComponent implements OnInit {
+export class ExpenseComponent implements OnInit {
   expenseVO: Expense = new Expense();
   expenseData: ExpesnesData =new ExpesnesData();
   expenseTypeList: ExpenseTypes[] ;
   cropsList:CropsInformation[];
+  
   // expenseType:ExpenseTypes;
   myControl = new FormControl();
   cropinfoControl = new FormControl();
   billControl=new FormControl();
   billslist:BillingInformation[];
-  constructor(  private api: CommonService) { }
+  
+  constructor(  private api: CommonService, private router:Router) { }
   @ViewChild('campFromInput', { read: MatInput }) campFromInput: MatInput;
+  
+  // navigationSubscription = this.router.events.subscribe((e: any) => {
+  //   if (e instanceof NavigationEnd) {
+  //     this.initialiseDefaultValues();
+  //   }
+  // });
   
   initialiseDefaultValues(){
     this.expenseData=new ExpesnesData();
@@ -112,6 +121,11 @@ export class ExpenseComponentComponent implements OnInit {
   }
   displayBillsControl(billInfo?:BillingInformation):String|undefined{
     return billInfo ?billInfo.billNo+" - "+billInfo.billerName:undefined;
+  }
+
+  addExpenseType(){
+    console.log("ctetsdfs");
+    this.router.navigate(['dashboard/expensetypes']);
   }
 
 }
