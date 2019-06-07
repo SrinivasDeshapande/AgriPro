@@ -1,7 +1,7 @@
 @import '../basestyles.scss';
 
 .fullwidth{
-    max-height:$max-win-height - 40px;
+    max-height:100%;
     max-width: $max-win-width;
     border: beige;
     color: #f8e2e2;
